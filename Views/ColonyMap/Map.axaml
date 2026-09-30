@@ -1,0 +1,97 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:CatDataViewer.Models"
+        xmlns:utils="using:Avalonia.Controls.Utils"
+        x:Class="CatDataViewer.Views.ColonyMap.Map"
+        >
+        <Grid>
+        <TextBlock Text="{Binding MapImage}" />
+        <Viewbox Stretch="Uniform">
+                <Canvas Width="2000" Height="1500">
+                    <Image Source="{Binding MapImage}" Stretch="Uniform"/>
+                    <Button Content="Campus Center"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        FontSize="25"
+                        FontWeight="SemiBold"
+                        BorderThickness="4"
+                        BorderBrush="white"
+                        Background="#B102B1"
+                        Canvas.Top="760"
+                        Canvas.Right="1050"
+                        Command="{Binding OpenZoneCmd}"
+                        CommandParameter="{Binding ZoneNums.CCenter}"
+                        />
+
+                        <Button Content="Barret"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        FontSize="25"
+                        FontWeight="SemiBold"
+                        BorderThickness="4"
+                        BorderBrush="white"
+                        Background="#B00CB0"
+                        Canvas.Top="520"
+                        Canvas.Right="1400"
+                        Command="{Binding OpenZoneCmd}"
+                        CommandParameter="{Binding ZoneNums.Barret}"
+                        />
+
+
+                        <Button Content="The Tower"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        FontSize="25"
+                        FontWeight="SemiBold"
+                        BorderThickness="4"
+                        BorderBrush="white"
+                        Background="#B102B1"
+                        Canvas.Top="850"
+                        Canvas.Right="850"
+                        Command="{Binding OpenZoneCmd}"
+                        CommandParameter="{Binding ZoneNums.Tower}"
+                        />
+
+
+                        <Button Content="Canyon"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        FontSize="25"
+                        FontWeight="SemiBold"
+                        BorderThickness="4"
+                        BorderBrush="white"
+                        Background="#B102B1"
+                        Canvas.Top="625"
+                        Canvas.Right="1150"
+                        Command="{Binding OpenZoneCmd}"
+                        CommandParameter="{Binding ZoneNums.Canyon}"
+                        />
+
+
+                        <Button Content="University Park"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        FontSize="25"
+                        FontWeight="SemiBold"
+                        BorderThickness="4"
+                        BorderBrush="white"
+                        Background="#B102B1"
+                        Canvas.Top="630"
+                        Canvas.Right="370"
+                        Command="{Binding OpenZoneCmd}"
+                        CommandParameter="{Binding ZoneNums.UP}"
+                        />
+                </Canvas>
+            </Viewbox>
+            <Border
+                Width="350"
+                Background="Purple"
+                HorizontalAlignment="Right"
+                IsVisible="{Binding IsZoneSelected}">
+                
+                <ContentControl Content="{Binding ZoneView}"/>
+            </Border>
+        </Grid>
+</UserControl>

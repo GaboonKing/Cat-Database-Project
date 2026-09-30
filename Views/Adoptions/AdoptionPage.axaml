@@ -1,0 +1,70 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:CatDataViewer.Models"
+        xmlns:utils="using:Avalonia.Controls.Utils"
+        x:Class="CatDataViewer.Views.Adoptions.AdoptionPage">
+        <Grid ColumnDefinitions="2*,3*,2*"> <!-- 29%, 43%, 29% (of the window)-->
+            <StackPanel Grid.Column="0" Spacing="10" Background="Purple">
+                <TextBlock Text="{Binding PageTitle}" FontSize="14" FontWeight="Bold"/>
+                <TextBlock Text="{Binding PageInfo}" FontSize="12" FontWeight="SemiBold" TextWrapping="WrapWithOverflow"/>
+                <Button x:Name="WaitlistSignUpBtn" Content="Join the Adoption Waitlist" FontSize="14"  FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Button x:Name="AdoptionManagerBtn" Content="Adoption Manager" FontSize="14"  FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Command="{Binding ChangeView}" IsVisible="{Binding Session.IsLoggedIn}"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Background="DarkBlue">
+                <TextBlock Text="How the Adoption Process Works" FontSize="16" FontWeight="Bold"></TextBlock>
+                <TextBlock Text="A feral cat is eligible for adoption in the following circumstances:" FontSize="12" TextWrapping="WrapWithOverflow"/>
+                <TextBlock Text="• They display an exceptional fondness of humans that potentially endangers them (EX: Following people across streets and in parking lots)" FontSize="12" TextWrapping="WrapWithOverflow"/>
+                <TextBlock Text="• They are unsuited to a feral lifestyle. Often occurs with cats who are left on campus by their owners" FontSize="12" TextWrapping="WrapWithOverflow"/>
+                <TextBlock Text="• They develop a medical condition (Such as FIV) that would be easier to manage indoors" FontSize="12" TextWrapping="WrapWithOverflow"/>
+                <Image/> <!-- Catio -->
+                <TextBlock Text="Once a cat has been put up for adoption, they will typically be held at a members house or in the on-campus catio until they are matched with an owner." FontSize="12" TextWrapping="WrapWithOverflow"/>
+                <TextBlock Text="We will then open adoption applications (found to the right), giving precedence to faculty and staff." FontSize="12" TextWrapping="WrapWithOverflow"/>
+            </StackPanel>
+            <StackPanel Grid.Column="2">
+                <TextBlock 
+                    Text="Potential Adoptees"
+                    FontSize="16"
+                    FontWeight="Bold"
+                />
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ItemsControl ItemsSource="{Binding OutgoingCats}" Background="Purple">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="models:Cat">
+                                <Border 
+                                    BorderThickness="2"
+                                    Margin="10" 
+                                    Padding="10" 
+                                    CornerRadius="8,8,8,8"
+                                    BorderBrush="Black" 
+                                    Background="Gray">
+                                    <StackPanel>
+                                        <Border 
+                                            BorderThickness="3"
+                                            Margin="10" 
+                                            CornerRadius="8,8,8,8"
+                                            BorderBrush="Black" 
+                                            Background="Gray"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            ClipToBounds="True">
+                                            <Image Name="CatImage" Source="{Binding RawImagePath}" 
+                                                Height= "150" 
+                                                Width= "150" 
+                                                Stretch= "UniformToFill"/>
+                                        </Border>
+                                        <TextBlock Text="{Binding Name}" TextAlignment="Center" FontSize="18" />
+                                        <Button x:Name="BioButton" Content="BIO" Background="#75C1DA" BorderBrush="BlueViolet" BorderThickness="2" Click="OpenProfile" HorizontalAlignment="Center"/>
+                                        
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </StackPanel>
+
+        </Grid>
+
+</UserControl>

@@ -1,0 +1,31 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:CatDataViewer.Models"
+        xmlns:utils="using:Avalonia.Controls.Utils"
+        x:Class="CatDataViewer.Views.Adoptions.InterestList"
+        x:Name="UserControl">
+        <StackPanel Background="Purple" Spacing="10">
+            <TextBlock Text="Cats you've expressed interest in adopting:" TextAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold"/>
+            <ItemsControl ItemsSource="{Binding InterestedCats}" IsVisible="{Binding HasInterests}">
+                <ItemsControl.ItemTemplate>
+                <DataTemplate x:DataType="models:Cat">
+                <Border BorderThickness="4" BorderBrush="White">
+                    <StackPanel Orientation="Horizontal" Background="#4D0E4D" Spacing="5" >
+                        <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding Status, StringFormat=Status: }" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Button Content="VIEW" FontWeight="SemiBold" Click="OpenProfile"/>
+                        <Button Content="X" FontWeight="Bold" FontSize="18" Command="{Binding DataContext.RemoveInterestCmd, ElementName=UserControl}" CommandParameter="{Binding}"
+                                Margin="600,0,0,0"/>
+                    </StackPanel>
+                </Border>
+                </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <TextBlock Text="Looks like you haven't added any cats your interest list!" FontWeight="SemiBold" IsVisible="{Binding NoInterests}" TextAlignment="Center"/>
+            <TextBlock Text="Return to the Adoption Page to view eligble cats" IsVisible="{Binding NoInterests}" TextAlignment="Center"/>
+            
+        </StackPanel>
+
+</UserControl>

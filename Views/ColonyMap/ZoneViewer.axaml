@@ -1,0 +1,36 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:CatDataViewer.Models"
+        xmlns:utils="using:Avalonia.Controls.Utils"
+        x:Class="CatDataViewer.Views.ColonyMap.ZoneViewer">
+        
+        <StackPanel>
+                <Button Content="Close" HorizontalAlignment="Right"/>
+                <TextBlock Text="{Binding ZoneName}" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <Image Source="{Binding RawImagePath}" Stretch="Uniform"/>
+                <TextBlock Text="Common Cat Sightings:" HorizontalAlignment="Center"/>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <ItemsControl ItemsSource="{Binding ZoneCats}">
+                                <ItemsControl.ItemTemplate>
+                                        <DataTemplate x:DataType="models:Cat">
+                                                <Border
+                                                        BorderThickness="2"
+                                                        BorderBrush="LightBlue"
+                                                        CornerRadius="8,8,8,8"
+                                                        >
+                                                        <StackPanel Orientation="Horizontal" Spacing="2">
+                                                                <TextBlock Text="{Binding Name}" FontWeight="SemiBold"/>
+                                                                <TextBlock Text="{Binding Temperament}"/>
+                                                                <Button Content="View"/>
+                                                        </StackPanel>
+
+                                                </Border>
+                                        </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                </ScrollViewer>
+        </StackPanel>
+
+</UserControl>

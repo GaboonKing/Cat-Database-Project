@@ -1,0 +1,37 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:CatDataViewer.Models"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="CatDataViewer.Views.MainWindow"
+        Title="MainWindow">
+    <DockPanel>
+        <!-- Header -->
+         <Border 
+            DockPanel.Dock="Top"
+            Background="#6D1A76"
+            BorderThickness="4"
+            BorderBrush="#6D1A76"
+            
+            >
+            <StackPanel Orientation="Horizontal" Spacing="40" Background="#470F5F">
+                <!--<TextBlock TextAlignment="Center" FontSize="22">Catabase</TextBlock> -->
+                <Button x:Name="ReturnHome" Content="{Binding SiteName}" HorizontalContentAlignment="Center" Command="{Binding HomeCmd}" FontSize="20" FontWeight="SemiBold"></Button>
+                <Button x:Name="BrowseCats" Content="Browse Cats" Command="{Binding ViewCatsCmd}"></Button>
+                <Button x:Name="Waitlist" Content="Join the Adoption Waitlist" Command="{Binding AdoptionPageCmd}"></Button>    
+                <Button x:Name="Map" Content="Colony Map" Command="{Binding MapCmd}"></Button>
+                <Button x:Name="Sightings" Content="New Cat Sightings"></Button>
+                <Button x:Name="Login" Content="Login" Click="OpenLoginWindow" IsVisible="{Binding Session.IsLoggedOut}"></Button>
+                <Button x:Name="UserProfile" Content="My Profile" Click="OpenUserProfile" IsVisible= "{Binding Session.IsLoggedIn}"></Button>
+            </StackPanel>
+        </Border>
+
+
+        <!-- Main Content -->
+        <ContentControl Content="{Binding AppSession.CurrentView}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></ContentControl>
+        
+
+        
+    </DockPanel>
+</Window>

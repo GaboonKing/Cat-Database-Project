@@ -1,0 +1,33 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="100" d:DesignHeight="150"
+        x:Class="CatDataViewer.Views.UserProfileViews.PersonalInfo">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel>
+                <TextBlock Text="Personal Information" FontWeight="Bold" HorizontalAlignment="Stretch"/>
+                <Separator/>
+                <TextBlock Text="First Name:" FontWeight="SemiBold"></TextBlock>
+                <TextBox x:Name="FNameInput"
+                    Text="{Binding SelectedFName}"/>
+                <TextBlock Text="Last Name:" FontWeight="SemiBold"></TextBlock>
+                <TextBox x:Name="LNameInput"
+                    Text="{Binding SelectedLName}"/>
+                <TextBlock Text="User Type:" FontWeight="SemiBold"></TextBlock>
+                <ComboBox x:Name="StatusInput"
+                    ItemsSource="{Binding Types}"
+                    SelectedItem="{Binding CurrentUser.Status}"/>
+                <TextBlock Text="Contact Information" FontWeight="Bold" FontSize="18"/>
+                <Separator/>
+                <TextBlock Text="Email:" FontWeight="SemiBold"></TextBlock>
+                <TextBox x:Name="EmailInput"
+                    Text="{Binding CurrentUser.Email}"/>
+                <Button Content="Save Edits" Background="LightGreen" 
+                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                   FontWeight="SemiBold" MinHeight="48" Command="{Binding SubmitChangesCmd}"/>
+                <TextBlock Text="{Binding ErrorMsg}" FontSize="11" Foreground="Red"/>
+            </StackPanel>
+        </ScrollViewer>
+        
+</UserControl>

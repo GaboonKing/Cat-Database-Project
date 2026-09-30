@@ -1,0 +1,86 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:CatDataViewer.Models"
+        xmlns:utils="using:Avalonia.Controls.Utils"
+        x:Class="CatDataViewer.Views.FrontPage"
+        >
+
+         <Border
+                BorderThickness="4"
+                Margin="10"
+                VerticalAlignment="Stretch"
+                HorizontalAlignment="Stretch"
+                BorderBrush= "#5482E4"
+                >
+                <DockPanel Background="#391572">
+                        <StackPanel Orientation="Horizontal" Spacing= "50" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" DockPanel.Dock="Left">
+                                <StackPanel VerticalAlignment="Stretch" Spacing="10">
+                                        <TextBlock Text="Welcome to the Catabase." FontSize="25" FontWeight="Bold"></TextBlock>
+                                        <TextBlock Text="Explore our vibrant cat community!"></TextBlock>
+                                        <Button x:Name="FrontPageBrowseCatButton" Content="Explore Cats"
+                                                HorizontalAlignment="Stretch"
+                                                HorizontalContentAlignment="Center"
+                                                Command="{Binding OpenCatWindow}">
+                                        </Button>
+                                </StackPanel>
+                                <Border BorderBrush="Black" BorderThickness="2" ClipToBounds="True">
+                                        <StackPanel>
+                                                <TextBlock Text="{Binding CatName, StringFormat= 'Cat of the Day:  {0}'}" FontSize="20" FontWeight= "Bold" HorizontalAlignment="Center"></TextBlock>
+                                                <Image Source= "{Binding ImagePath}" Stretch= "Fill" Height= "200" Width= "300"></Image>      
+                                        </StackPanel>
+                                </Border>
+                        </StackPanel>
+                        <Grid Background="Black" DockPanel.Dock="Right" Width="175">
+                                <Border ClipToBounds="True">
+                                        <StackPanel x:Name="ImagePanel" Spacing="5">
+                                                <Image 
+                                                        Source="avares://CatDataViewer/Assets/CatPhotos/Ivan.jpg"
+                                                        Height="150" Width="150" Stretch="Fill"
+                                                />
+                                                <Image 
+                                                        Source="avares://CatDataViewer/Assets/CatPhotos/Monster.jpg"
+                                                        Height="150" Width="150" Stretch="Fill"
+                                                />
+                                                <Image 
+                                                        Source="avares://CatDataViewer/Assets/CatPhotos/Peaches.jpg"
+                                                        Height="150" Width="150" Stretch="Fill"
+                                                />
+                                                <Image 
+                                                        Source="avares://CatDataViewer/Assets/CatPhotos/Slushy.jpg"
+                                                        Height="150" Width="150" Stretch="Fill"
+                                                />
+                                                <Image 
+                                                        Source="avares://CatDataViewer/Assets/CatPhotos/Tom.jpg"
+                                                        Height="150" Width="150" Stretch="Fill"
+                                                />
+                                                <!--Duplicate the Images to mask the reset-->
+                                                <Image 
+                                                        Source="avares://CatDataViewer/Assets/CatPhotos/Ivan.jpg"
+                                                        Height="150" Width="150" Stretch="Fill"
+                                                />
+                                                <Image 
+                                                        Source="avares://CatDataViewer/Assets/CatPhotos/Monster.jpg"
+                                                        Height="150" Width="150" Stretch="Fill"
+                                                />
+                                                <Image 
+                                                        Source="avares://CatDataViewer/Assets/CatPhotos/Peaches.jpg"
+                                                        Height="150" Width="150" Stretch="Fill"
+                                                />
+                                                <Image 
+                                                        Source="avares://CatDataViewer/Assets/CatPhotos/Slushy.jpg"
+                                                        Height="150" Width="150" Stretch="Fill"
+                                                />
+                                                <Image 
+                                                        Source="avares://CatDataViewer/Assets/CatPhotos/Tom.jpg"
+                                                        Height="150" Width="150" Stretch="Fill"
+                                                />
+                                        </StackPanel>
+                                </Border>
+                        </Grid>
+                </DockPanel>
+        </Border>
+        
+
+</UserControl>

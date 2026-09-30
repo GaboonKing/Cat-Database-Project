@@ -1,0 +1,21 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:CatDataViewer.Models"
+        xmlns:utils="using:Avalonia.Controls.Utils"
+        x:Class="CatDataViewer.Views.Adoptions.AdoptionManager">
+        <Grid ColumnDefinitions=".3*,.7*">
+            <StackPanel Grid.Column="0" Background="#2F0F4B">
+                <Button Content="Interest List" FontStretch="Expanded" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MinWidth="150"/>
+                <Button Content="My Adoptions" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MinWidth="150"/>
+                <Button Content="Return" Background="LightGreen" FontSize="24"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MinWidth="150"
+                    Command="{Binding ReturnCmd}"/>
+            </StackPanel>
+            
+            <ContentControl Grid.Column="1" Content="{Binding AdoptionView}"></ContentControl>
+        </Grid>
+
+
+</UserControl>
+

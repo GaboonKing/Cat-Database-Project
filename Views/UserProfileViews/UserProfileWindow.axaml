@@ -1,0 +1,49 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        x:Class="CatDataViewer.Views.UserProfileViews.UserProfileWindow"
+        Title="My Profile"
+        Width="350"
+        Height="450"
+        MinWidth="300"
+        MinHeight="300"
+        WindowStartupLocation="CenterScreen">
+
+        
+        <Border Background="#DB4FDB" Padding="10">
+            <DockPanel>
+            <Panel DockPanel.Dock="Top" Background="#552FDC" MinHeight="40">
+                <StackPanel>
+                    <TextBlock Text="Profile Manager" FontSize="24" FontWeight="SemiLight" VerticalAlignment="Center"/>
+                    <Separator HorizontalAlignment="Stretch" Margin="0,0,50,0"/>
+                </StackPanel>
+            </Panel>
+            <StackPanel DockPanel.Dock="Left">
+                <Border 
+                Background="#436FB6"
+                Width="120" 
+                Padding="8">
+                    <StackPanel Spacing="4"> <!---Info organizer-->
+                        <Button x:Name="PersonalInfo" Content="About Me" Command="{Binding OpenPersonalInfoCmd}" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" MinHeight="40"
+                        Background="#F0F0F0"
+                        Foreground="Black"/>
+                        <Button x:Name="Contact" Content="Contact Info" Command="{Binding OpenContactInfoCmd}"  HorizontalContentAlignment="Center" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" MinHeight="40"
+                        Background="#F0F0F0"
+                        Foreground="Black"/>
+                        <Button x:Name="AdoptionAppDisplay" Content="Applications" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" MinHeight="40"
+                        Background="#F0F0F0"
+                    Foreground="Black"/>
+                        <Button x:Name="AccountMnger" Content="My Account" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" MinHeight="40"
+                        Background="#F0F0F0"
+                        Foreground="Black" Command="{Binding OpenAccountMngrCmd}"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+            <Border Background="LightBlue" Padding="10">
+                <ContentControl Content="{Binding CurrentSection}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></ContentControl> 
+            </Border>
+            </DockPanel>
+        </Border>
+</Window>
